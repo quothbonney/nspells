@@ -1,0 +1,3 @@
+/home/quothbonney/projects/nspells/cmake-build-debug/CMakeFiles/spells.dir
+/home/quothbonney/projects/nspells/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/quothbonney/projects/nspells/cmake-build-debug/CMakeFiles/rebuild_cache.dir
