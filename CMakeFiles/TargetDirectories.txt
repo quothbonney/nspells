@@ -1,3 +1,0 @@
-/home/quothbonney/projects/nspells/CMakeFiles/rebuild_cache.dir
-/home/quothbonney/projects/nspells/CMakeFiles/edit_cache.dir
-/home/quothbonney/projects/nspells/CMakeFiles/spells.dir
