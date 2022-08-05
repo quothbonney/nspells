@@ -34,15 +34,21 @@ GameWindow::GameWindow(int y, int x, int xOff, int yOff, bool cent) {
     // Init window
     win = newwin(sizeY, sizeX, offsetY, offsetX);
 }
-
-void GameWindow::drawRectangle(Rectangle& r, int y, int x) {
+template<typename T> void GameWindow::drawShape(T& r, int y, int x) {
     for(int i = 0; i < r.spriteY; i++) {
         for(int j = 0; j < r.spriteX; j++) {
-            //mvwaddwstr(win, y+i, x+j, str);
-            wmove(win, y+i, x+j);
-            wchar_t* s = r.sprite[i][j];
-            waddwstr(win, s);
+            // Check that index is within GameWindow.win
+            // Avoids edge garbage
+            if(y+i >= 0 && y+i < sizeY && x+j >= 0 && x+j < sizeX) {
+                // REFERENCE: mvwaddwstr(win, y, x, str);
+                wmove(win, y+i, x+j);
+                wchar_t* s = r.sprite[i][j];
+                waddwstr(win, s);
+            }
+
         }
     }
-
 }
+
+// Instantiate drawShape template for given types in include/GameWindow.h
+template void GameWindow::drawShape<Rectangle>(Rectangle& r, int y, int x);
