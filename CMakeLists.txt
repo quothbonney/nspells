@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project(spells)
+project(bin/spells)
 
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
@@ -15,5 +15,11 @@ endif()
 add_compile_options("-lncursesw -lstdc++fs")
 link_libraries("-lncursesw -lstdc++fs")
 
-add_executable(spells main.cpp)
-target_link_libraries(spells ${CURSES_LIBRARIES})
+add_executable(bin/spells
+        src/main.cpp
+        src/Rectangle.cpp
+        src/GameWindow.cpp
+        include/Rectangle.h
+        include/GameWindow.h
+        )
+target_link_libraries(bin/spells ${CURSES_LIBRARIES})
