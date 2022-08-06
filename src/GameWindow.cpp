@@ -2,9 +2,11 @@
 // Main window for application; draws shapes; can be centered with cent boolean or manually offset with xOff and yOff class attributes
 //
 
-#include "../include/GameWindow.h"
 #include <ncursesw/ncurses.h>
 #include <iostream>
+
+#include "../include/GameWindow.h"
+#include "../include/global.h"
 
 void GameWindow::updateOffset() {
     getmaxyx(stdscr, scrSizeY, scrSizeX);
@@ -50,5 +52,26 @@ template<typename T> void GameWindow::drawShape(T& r, int y, int x) {
     }
 }
 
+// Repetitive function better than nested template garbage
+// instead of y and x, takes struct elementPosition defined as shape.pos
+template<typename T> void GameWindow::drawShapeFromPosition(T& r, elementPosition& e) {
+    for(int i = 0; i < r.spriteY; i++) {
+        for(int j = 0; j < r.spriteX; j++) {
+            // Check that index is within GameWindow.win
+            // Avoids edge garbage
+            if(e.posY + i >= 0 && e.posY+i < sizeY && e.posX+j >= 0 && e.posX+j < sizeX) {
+                // REFERENCE: mvwaddwstr(win, y, x, str);
+                wmove(win, e.posY + i, e.posX + j);
+                wchar_t* s = r.sprite[i][j];
+                waddwstr(win, s);
+            }
+
+        }
+    }
+}
+
 // Instantiate drawShape template for given types in include/GameWindow.h
 template void GameWindow::drawShape<Rectangle>(Rectangle& r, int y, int x);
+
+// Ditto, but for drawShapeFromPosition
+template void GameWindow::drawShapeFromPosition<Rectangle>(Rectangle& r, elementPosition& e);

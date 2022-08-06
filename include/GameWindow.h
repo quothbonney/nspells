@@ -20,8 +20,9 @@ public:
     void updateOffset();
     GameWindow(int y, int x, int xOff, int yOff, bool cent=false);
 
-
     template<typename T> void drawShape(T& r, int y, int x);
+
+    template<typename T> void drawShapeFromPosition(T& r, elementPosition& e);
 };
 
 

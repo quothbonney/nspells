@@ -3,7 +3,7 @@
 //
 
 #include "../include/Rectangle.h"
-
+#include "../include/global.h"
 
 wchar_t*** Rectangle::initSprite() {
     wchar_t*** sp = new wchar_t**[spriteY];
@@ -25,4 +25,18 @@ Rectangle::Rectangle(int y, int x, wchar_t* fill) {
 
 Rectangle::~Rectangle() {
     delete[] sprite;
+}
+
+void Rectangle::definePosition(int y, int x) {
+    pos.posX = x;
+    pos.posY = y;
+}
+
+elementPosition Rectangle::getPosition() {
+    return pos;
+}
+
+void Rectangle::modifyPosition(int y, int x) {
+    pos.posY += y;
+    pos.posX += x;
 }

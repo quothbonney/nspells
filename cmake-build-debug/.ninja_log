@@ -1,0 +1,5 @@
+# ninja log v5
+0	21	1659754984457047278	CMakeFiles/bin/spells.dir/src/Rectangle.cpp.o	4543f9000d259ddb
+1	210	1659754984645052022	CMakeFiles/bin/spells.dir/src/GameWindow.cpp.o	a41862bac24974ca
+0	215	1659754984649052124	CMakeFiles/bin/spells.dir/src/main.cpp.o	acc2272a864c9a3d
+215	270	1659754984705053536	bin/spells	3fde1f19f7870d7b
