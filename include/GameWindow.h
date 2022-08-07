@@ -13,16 +13,25 @@ private:
     int sizeX, sizeY;
     int scrSizeX, scrSizeY;
     int offsetX, offsetY;
+    int bgColor;
+
+    void initColor();
+
+
 
 public:
     WINDOW* win;
 
     void updateOffset();
-    GameWindow(int y, int x, int xOff, int yOff, bool cent=false);
+    GameWindow(int y, int x, int xOff, int yOff, bool cent=false, int bgColor=0);
 
-    template<typename T> void drawShape(T& r, int y, int x);
+    void refresh(int time);
 
-    template<typename T> void drawShapeFromPosition(T& r, elementPosition& e);
+    template<typename T> void drawShape(T& r, int y, int x, int color=8);
+
+    template<typename T> void drawShapeFromPosition(T& r, elementPosition& e, int color=8);
+
+    void drawBg();
 };
 
 
