@@ -8,6 +8,7 @@
 
 #include "../include/GameWindow.h"
 #include "../include/global.h"
+#include "../include/Rectangle.h"
 
 void GameWindow::initColor() {
     bool hc = has_colors();
@@ -74,14 +75,16 @@ GameWindow::GameWindow(int y, int x, int xOff, int yOff, bool cent, int bg) {
 }
 template<typename T> void GameWindow::drawShape(T& r, int y, int x, int color) {
     wattron(win, COLOR_PAIR(color));
-    for(int i = 0; i < r.spriteY; i++) {
-        for(int j = 0; j < r.spriteX; j++) {
+    // Because the inherited attributes of T& r from Element are protected,
+    // Go up a level to superclass Element to access the attributes publicly
+    for(int i = 0; i < reinterpret_cast<Element&>(r).spriteY; i++) {
+        for(int j = 0; j < reinterpret_cast<Element&>(r).spriteX; j++) {
             // Check that index is within GameWindow.win
             // Avoids edge garbage
             if(y+i >= 0 && y+i < sizeY && x+j >= 0 && x+j < sizeX) {
                 // REFERENCE: mvwaddwstr(win, y, x, str);
                 wmove(win, y+i, x+j);
-                wchar_t* s = r.sprite[i][j];
+                wchar_t* s = reinterpret_cast<Element&>(r).sprite[i][j];
                 waddwstr(win, s);
             }
 
@@ -112,4 +115,4 @@ template<typename T> void GameWindow::drawShapeFromPosition(T& r, elementPositio
 template void GameWindow::drawShape<Rectangle>(Rectangle& r, int y, int x, int color);
 
 // Ditto, but for drawShapeFromPosition
-template void GameWindow::drawShapeFromPosition<Rectangle>(Rectangle& r, elementPosition& e, int color);
+template void GameWindow::drawShapeFromPosition<Element>(Element& r, elementPosition& e, int color);

@@ -1,9 +1,15 @@
 //
-// Created by quothbonney on 8/5/22.
+// Created by quothbonney on 8/7/22.
 //
 
 #include "../include/Rectangle.h"
-#include "../include/global.h"
+
+Rectangle::Rectangle(int y, int x, wchar_t* fill) : Element(y, x) {
+    // wchar_t fill character defined in Element.h
+    this->f = fill;
+
+    sprite = initSprite();
+}
 
 wchar_t*** Rectangle::initSprite() {
     wchar_t*** sp = new wchar_t**[spriteY];
@@ -13,30 +19,4 @@ wchar_t*** Rectangle::initSprite() {
             sp[row][elem] = f;
     }
     return sp;
-}
-
-Rectangle::Rectangle(int y, int x, wchar_t* fill) {
-    this->spriteY = y;
-    this->spriteX = x;
-    this->f = fill;
-
-    sprite = initSprite();
-}
-
-Rectangle::~Rectangle() {
-    delete[] sprite;
-}
-
-void Rectangle::definePosition(int y, int x) {
-    pos.posX = x;
-    pos.posY = y;
-}
-
-elementPosition Rectangle::getPosition() {
-    return pos;
-}
-
-void Rectangle::modifyPosition(int y, int x) {
-    pos.posY += y;
-    pos.posX += x;
 }

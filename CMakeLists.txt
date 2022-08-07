@@ -17,9 +17,11 @@ link_libraries("-lncursesw -lstdc++fs")
 
 add_executable(bin/spells
         src/main.cpp
-        src/Rectangle.cpp
+        src/Element.cpp
         src/GameWindow.cpp
-        include/Rectangle.h
+        src/Rectangle.cpp
+        include/Element.h
         include/GameWindow.h
+        include/Rectangle.h
         )
 target_link_libraries(bin/spells ${CURSES_LIBRARIES})

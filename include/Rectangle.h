@@ -1,28 +1,18 @@
 //
-// Created by quothbonney on 8/5/22.
+// Created by quothbonney on 8/7/22.
 //
 
-#ifndef BIN_SPELLS_RECTANGLE_H
-#define BIN_SPELLS_RECTANGLE_H
+#ifndef NSPELLS_RECTANGLE_H
+#define NSPELLS_RECTANGLE_H
 
-#include "global.h"
+#include "Element.h"
 
-class Rectangle {
-private:
-    wchar_t* f;
-    wchar_t*** initSprite();
-    elementPosition pos;
-
+class Rectangle : Element {
 public:
-    int spriteX, spriteY;
-    wchar_t*** sprite;
-
     Rectangle(int y, int x, wchar_t* fill=L"\u2588");
-    ~Rectangle();
-    void definePosition(int y, int x);
-    elementPosition getPosition();
-    void modifyPosition(int y, int x);
+
+    wchar_t*** initSprite();
 };
 
 
-#endif //BIN_SPELLS_RECTANGLE_H
+#endif //NSPELLS_RECTANGLE_H

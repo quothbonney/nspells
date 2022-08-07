@@ -57,8 +57,8 @@ build CMakeFiles/bin/spells.dir/src/main.cpp.o: CXX_COMPILER__bin.2fspells_Debug
   TARGET_COMPILE_PDB = CMakeFiles/bin/spells.dir/
   TARGET_PDB = bin/spells.pdb
 
-build CMakeFiles/bin/spells.dir/src/Rectangle.cpp.o: CXX_COMPILER__bin.2fspells_Debug /home/quothbonney/projects/nspells/src/Rectangle.cpp || cmake_object_order_depends_target_bin/spells
-  DEP_FILE = CMakeFiles/bin/spells.dir/src/Rectangle.cpp.o.d
+build CMakeFiles/bin/spells.dir/src/Element.cpp.o: CXX_COMPILER__bin.2fspells_Debug /home/quothbonney/projects/nspells/src/Element.cpp || cmake_object_order_depends_target_bin/spells
+  DEP_FILE = CMakeFiles/bin/spells.dir/src/Element.cpp.o.d
   FLAGS = -g "-lncursesw -lstdc++fs"
   OBJECT_DIR = CMakeFiles/bin/spells.dir
   OBJECT_FILE_DIR = CMakeFiles/bin/spells.dir/src
@@ -73,6 +73,14 @@ build CMakeFiles/bin/spells.dir/src/GameWindow.cpp.o: CXX_COMPILER__bin.2fspells
   TARGET_COMPILE_PDB = CMakeFiles/bin/spells.dir/
   TARGET_PDB = bin/spells.pdb
 
+build CMakeFiles/bin/spells.dir/src/Rectangle.cpp.o: CXX_COMPILER__bin.2fspells_Debug /home/quothbonney/projects/nspells/src/Rectangle.cpp || cmake_object_order_depends_target_bin/spells
+  DEP_FILE = CMakeFiles/bin/spells.dir/src/Rectangle.cpp.o.d
+  FLAGS = -g "-lncursesw -lstdc++fs"
+  OBJECT_DIR = CMakeFiles/bin/spells.dir
+  OBJECT_FILE_DIR = CMakeFiles/bin/spells.dir/src
+  TARGET_COMPILE_PDB = CMakeFiles/bin/spells.dir/
+  TARGET_PDB = bin/spells.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target bin/spells
@@ -81,7 +89,7 @@ build CMakeFiles/bin/spells.dir/src/GameWindow.cpp.o: CXX_COMPILER__bin.2fspells
 #############################################
 # Link the executable bin/spells
 
-build bin/spells: CXX_EXECUTABLE_LINKER__bin.2fspells_Debug CMakeFiles/bin/spells.dir/src/main.cpp.o CMakeFiles/bin/spells.dir/src/Rectangle.cpp.o CMakeFiles/bin/spells.dir/src/GameWindow.cpp.o | /usr/lib/x86_64-linux-gnu/libcurses.so /usr/lib/x86_64-linux-gnu/libform.so
+build bin/spells: CXX_EXECUTABLE_LINKER__bin.2fspells_Debug CMakeFiles/bin/spells.dir/src/main.cpp.o CMakeFiles/bin/spells.dir/src/Element.cpp.o CMakeFiles/bin/spells.dir/src/GameWindow.cpp.o CMakeFiles/bin/spells.dir/src/Rectangle.cpp.o | /usr/lib/x86_64-linux-gnu/libcurses.so /usr/lib/x86_64-linux-gnu/libform.so
   FLAGS = -g
   LINK_FLAGS = -rdynamic
   LINK_LIBRARIES = -lncursesw -lstdc++fs  -lcurses  -lform
